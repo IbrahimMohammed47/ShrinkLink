@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../config/DBConfig')
-const Report = sequelize.define('appointments', {
+const Report = sequelize.define('reports', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
