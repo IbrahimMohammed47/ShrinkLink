@@ -14,6 +14,10 @@ const Doctor = sequelize.define('doctors', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   specialization: { type: Sequelize.STRING },
   email: { type: Sequelize.STRING, unique: true },
   mobileNumber: { type: Sequelize.STRING, unique: true },

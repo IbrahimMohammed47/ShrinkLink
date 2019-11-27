@@ -1,15 +1,18 @@
 const sequelize = require('../config/DBConfig')
-const doctors = require('./doctor.model')
-const patients = require('./patient.model')
-const appointments = require('./appointment.model')
-const reports = require('./report.model')
+const Doctor = require('./doctor.model')
+const Patient = require('./patient.model')
+const Appointment = require('./appointment.model')
+const Report = require('./report.model')
+const Rating = require('./rating.model')
+
 sequelize.sync({ force: false })
   .then(() => {
     console.log(`tables are successfully synced! 🚀`)
   })
 module.exports = {
-  doctors,
-  patients,
-  appointments,
-  reports
+  Doctor,
+  Patient,
+  Appointment,
+  Report,
+  Rating
 }
