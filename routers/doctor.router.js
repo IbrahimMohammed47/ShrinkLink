@@ -1,7 +1,10 @@
 const express = require('express')
+const bcrypt = require('bcryptjs');
 const router = express.Router()
 const { Doctor, Rating } = require('../models/')
+const { login, verifyToken } = require('../middleware/auth')
 
+router.post('/login', login(Doctor))
 
 router.post('/create', async (req, res) => {
   try {
@@ -10,6 +13,7 @@ router.post('/create', async (req, res) => {
       lastName: req.body.lastName,
       specialization: req.body.specialization,
       email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 8),
       mobileNumber: req.body.mobileNumber,
       rating: req.body.rating,
       place: req.body.place,
@@ -23,7 +27,7 @@ router.post('/create', async (req, res) => {
   }
 })
 
-router.put('/edit/:id', async (req, res) => {
+router.put('/edit/:id', verifyToken, async (req, res) => {
   try {
     doctor = await Doctor.findByPk(req.params.id);
     doctor = Object.assign(doctor, req.body);
@@ -60,7 +64,7 @@ router.get('/view/:id', async (req, res) => {
   }
 })
 
-router.put('/rate', async (req, res) => {
+router.put('/rate', verifyToken, async (req, res) => {
   try {
     let docId = req.body.doctor_id
     let newRating = req.body.rating
@@ -72,7 +76,7 @@ router.put('/rate', async (req, res) => {
       where: { doctor_id: docId },
     })
     let doctor = await Doctor.findByPk(docId)
-    doctor.rating += (newRating / ratingsCount);
+    doctor.rating = ((newRating + doctor.rating) / ratingsCount);
     await doctor.save();
 
     res.send(`doctor rate is now ${doctor.rating}`)
