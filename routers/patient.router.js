@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const router = express.Router()
 
 const { Patient, Report } = require('../models/')
-router.post('/register', async (req, res) => {
+router.post('/create', async (req, res) => {
 
   try {
     let patient = await Patient.create({
