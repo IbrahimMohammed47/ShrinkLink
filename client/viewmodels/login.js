@@ -25,7 +25,7 @@ function GenericLoginViewModel(url) {
   };
 }
 const DoctorLoginViewModel = GenericLoginViewModel("https://localhost:5000/api/doctors/login");
-// const UserLoginViewModel = GenericLoginViewModel("http://localhost:5000/api/doctors/login");
+const UserLoginViewModel = GenericLoginViewModel("http://localhost:5000/api/patients/login");
 
 ko.applyBindings(new DoctorLoginViewModel(), document.getElementById("doctorLoginId"));
-// ko.applyBindings(new UserLoginViewModel(), document.getElementById("userLoginId"));
+ko.applyBindings(new UserLoginViewModel(), document.getElementById("userLoginId"));
