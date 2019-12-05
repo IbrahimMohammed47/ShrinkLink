@@ -10,6 +10,12 @@ const Patient = sequelize.define('patients', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  stripe_id:
+  {
+    type: Sequelize.STRING,
+    unique: true
+  }
+  ,
   lastName: {
     type: Sequelize.STRING,
     allowNull: false
