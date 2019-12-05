@@ -6,6 +6,12 @@ const Patient = sequelize.define('patients', {
     primaryKey: true,
     autoIncrement: true,
   },
+  stripe_id:
+  {
+    type: Sequelize.STRING,
+    unique: true
+  }
+  ,
   firstName: {
     type: Sequelize.STRING,
     allowNull: false

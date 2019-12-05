@@ -3,9 +3,20 @@ const bcrypt = require('bcryptjs');
 const router = express.Router()
 
 const { Patient, Report } = require('../models/')
-router.post('/register', async (req, res) => {
 
+const stripe = require('stripe')('sk_test_Aqa9dsgiQPVXBfyw9fTgJA5h00LK5cUlKs');
+
+router.post('/create', async (req, res) => {
   try {
+
+    const customer = await stripe.customers.create({
+      name: req.body.firstName + " " + req.body.lastName,
+      email: req.body.email,
+      description: 'sapry dummy description'
+    });
+
+
+    console.log(customer.id)
     let patient = await Patient.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -14,7 +25,9 @@ router.post('/register', async (req, res) => {
       mobileNumber: req.body.mobileNumber,
       age: req.body.age,
       gender: req.body.gender,
+      stripe_id: customer.id,
     })
+    console.log(`patient created with stripe id ${patient.stripe_id}`)
     res.send(`patient created with id ${patient.id}`)
   } catch (error) {
     console.log(error);
