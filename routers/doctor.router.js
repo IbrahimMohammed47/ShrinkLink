@@ -1,10 +1,30 @@
 const express = require('express')
 const bcrypt = require('bcryptjs');
 const router = express.Router()
-const { Doctor, Rating } = require('../models/')
+
+const { Doctor, Rating, Report } = require('../models/')
+
 const { login, verifyToken } = require('../middleware/auth')
 
 router.post('/login', login(Doctor))
+
+router.post('/report', async (req, res) => {
+  try {
+    let report = await Report.create({
+      id: req.body.id,
+      patient_id: req.body.patient_id,
+      diagnosis: req.body.diagnosis,
+      treatment: req.body.treatment,
+      comment: req.body.comment
+    })
+    res.send(`report created with id ${report.id}`)
+  } catch (error) {
+    console.log(error);
+    res.send("something wrong")
+  }
+})
+
+
 
 router.post('/create', async (req, res) => {
   try {
@@ -26,6 +46,7 @@ router.post('/create', async (req, res) => {
     res.send("something wrong");
   }
 })
+
 
 router.put('/edit/:id', verifyToken, async (req, res) => {
   try {
