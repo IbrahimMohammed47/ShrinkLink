@@ -9,6 +9,13 @@ const Report = sequelize.define('reports', {
       key: 'id',
     }
   },
+  patient_id: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'patients',
+      key: 'id',
+    }
+  },
   diagnosis: Sequelize.TEXT,
   treatment: Sequelize.TEXT,
   comment: Sequelize.TEXT
