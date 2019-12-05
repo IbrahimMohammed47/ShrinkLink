@@ -24,7 +24,7 @@ const verifyToken = (req, res, next) => {
 const login = (Model) => async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-
+  console.log(req.body)
   let member = await Model.findOne({ where: { email: email } })
   if (!member) return res.status(401).send("Either your E-mail or Password is wrong.")
 
