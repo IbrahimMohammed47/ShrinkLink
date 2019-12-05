@@ -5,7 +5,7 @@ const stripe = require('stripe')('sk_test_Aqa9dsgiQPVXBfyw9fTgJA5h00LK5cUlKs');
 
 
 
-router.post('/create', async (req, res) => {
+router.post('/book', async (req, res) => {
   try {
 
     patient = await Patient.findByPk(req.body.patient_id);
