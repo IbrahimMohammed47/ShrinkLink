@@ -2,8 +2,8 @@ const express = require('express')
 const bcrypt = require('bcryptjs');
 const router = express.Router()
 
-const { Patient } = require('../models/')
-router.post('/register', async (req, res) => {
+const { Patient, Report } = require('../models/')
+router.post('/create', async (req, res) => {
 
   try {
     let patient = await Patient.create({
@@ -21,5 +21,19 @@ router.post('/register', async (req, res) => {
     res.send("something wrong");
   }
 })
+
+router.get('/history/:id', async (req, res) => {
+  try {
+    let reports = await Report.findAll({
+      attributes: ['patient_id', 'diagnosis', 'treatment', 'comment']
+      , where: { patient_id: req.params.id }
+    });
+    res.json(reports);
+  } catch (error) {
+    console.log(error);
+    res.send("something wrong");
+  }
+})
+
 
 module.exports = router
