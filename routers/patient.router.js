@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const router = express.Router()
 
 const { Patient, Report } = require('../models/')
-const stripe = require('stripe')('sk_test_Aqa9dsgiQPVXBfyw9fTgJA5h00LK5cUlKs');
+const stripe = require('stripe')(process.env.STRIPESECRET);
 router.post('/create', async (req, res) => {
   try {
 

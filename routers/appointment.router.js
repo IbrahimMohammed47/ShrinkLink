@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const { Appointment, Patient } = require('../models/')
-const stripe = require('stripe')('sk_test_Aqa9dsgiQPVXBfyw9fTgJA5h00LK5cUlKs');
+const stripe = require('stripe')(process.env.STRIPESECRET);
 router.post('/book', async (req, res) => {
   try {
     patient = await Patient.findByPk(req.body.patient_id);
