@@ -20,10 +20,11 @@
         <h3>Users</h3>
         <form id="userRegisterId" data-bind="submit: register">
           <div class="form-group">
-            <input type="email" data-bind="value:email" class="form-control" placeholder="Your Email *" value="" />
+            <input type="email" data-bind="value:email" class="form-control" placeholder="Your Email *" required />
           </div>
           <div class="form-group">
-            <input type="password" data-bind="value:password" class="form-control" placeholder="Your Password *" />
+            <input type="password" data-bind="value:password" class="form-control" placeholder="Your Password *"
+              required />
           </div>
           <div class="form-group">
             <input type="text" data-bind="value:firstName" class="form-control" placeholder="first name *" value="" />
@@ -53,10 +54,10 @@
         <h3>Doctors</h3>
         <form id="doctorRegisterId">
           <div class="form-group">
-            <input type="email" data-bind="value:email" class="form-control" placeholder="email *" value="" />
+            <input type="email" data-bind="value:email" class="form-control" placeholder="email *" required />
           </div>
           <div class="form-group">
-            <input type="password" data-bind="value:password" class="form-control" placeholder="password *" value="" />
+            <input type="password" data-bind="value:password" class="form-control" placeholder="password *" required />
           </div>
           <div class="form-group">
             <input type="text" data-bind="value:firstName" class="form-control" placeholder="first name *" value="" />
@@ -71,7 +72,8 @@
             <input type="number" data-bind="value:mobileNumber" class="form-control" placeholder="mobileNumber" />
           </div>
           <div class="form-group">
-            <input type="text" data-bind="value:place" class="form-control" placeholder="place to do meetings" />
+            <input type="text" data-bind="value:place" class="form-control" placeholder="place to do meetings"
+              required />
           </div>
           <div class="form-group">
             <input type="text" data-bind="click: register" class="btnSubmit" value="Register" />
@@ -81,7 +83,7 @@
     </div>
     <div class="row justify-content-md-center">
       <div class="form-group loginRegisterSwitch offset-md-0">
-        <input type="submit" class="btnSubmit" value="Login" />
+        <input id="goToLogin" type="submit" class="btnSubmit" value="Login" />
       </div>
     </div>
   </div>

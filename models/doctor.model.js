@@ -27,7 +27,7 @@ const Doctor = sequelize.define('doctors', {
   certificates: { type: Sequelize.ARRAY(Sequelize.TEXT) },
 }, {
   timestamps: false,
-  alter: true,
+  alter: false,
   modelName: 'doctors'
 });
 

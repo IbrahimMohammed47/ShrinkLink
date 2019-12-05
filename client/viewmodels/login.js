@@ -12,20 +12,26 @@ function GenericLoginViewModel(url) {
           email: self.email(),
           password: self.password(),
         })
-      }).then(response =>
-        response.json()
-      ).then((data) => {
+      }).then(response => {
+        console.log('Request success: ', response)
+        return response.json()
+      }).then((data) => {
         console.log('Request success: ', data);
         localStorage.setItem("authData", data.authData)
         localStorage.setItem("userData", JSON.stringify(data.userData))
+        window.location.replace("/client/views/editSlots.html");
       }).catch(function (err) {
         console.log(err)
       })
     };
   };
 }
-const DoctorLoginViewModel = GenericLoginViewModel("https://localhost:5000/api/doctors/login");
+const DoctorLoginViewModel = GenericLoginViewModel("http://localhost:5000/api/doctors/login");
 const UserLoginViewModel = GenericLoginViewModel("http://localhost:5000/api/patients/login");
 
 ko.applyBindings(new DoctorLoginViewModel(), document.getElementById("doctorLoginId"));
 ko.applyBindings(new UserLoginViewModel(), document.getElementById("userLoginId"));
+
+$('#goToRegister').click(e => {
+  window.location.replace("/client/views/register.html");
+})
