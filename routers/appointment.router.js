@@ -4,7 +4,7 @@ const { Appointment } = require('../models/')
 
 
 
-router.post('/create', async (req, res) => {
+router.post('/book', async (req, res) => {
   try {
     let d = new Date()
     let appointment = await Appointment.create({
