@@ -65,3 +65,8 @@ function UserRegisterViewModel() {
 
 ko.applyBindings(new DoctorRegisterViewModel(), document.getElementById("doctorRegisterId"));
 ko.applyBindings(new UserRegisterViewModel(), document.getElementById("userRegisterId"));
+
+
+$('#goToLogin').click(e => {
+  window.location.replace("/client/views/login.html");
+})

@@ -38,6 +38,7 @@ const login = (Model) => async (req, res) => {
         firstName: member.firstName,
         lastName: member.lastName,
         membershipExpiryDate: member.membershipExpiryDate,
+        slots: member.slots ? member.slots : null
       }
     })
   }
