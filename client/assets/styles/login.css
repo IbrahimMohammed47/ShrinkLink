@@ -1,0 +1,67 @@
+.login-container{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.login-form-1{
+  padding: 10%;
+  box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+  text-align: center;
+  color: #333;
+}
+.login-form-2{
+  padding: 10%;
+  background: #0062cc;
+  box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+  text-align: center;
+  color: #fff;
+}
+.login-container form{
+  padding: 10%;
+  height: 400px;
+}
+.btnSubmit
+{
+  width: 100%;
+  height: 35px;
+  border-radius: 1rem;
+  padding: 1.10%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
+  text-align: center;
+}
+.centerInside{
+  text-align: center;
+}
+.loginRegisterSwitch{
+  padding: 0px;
+}
+.loginRegisterSwitch .btnSubmit{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: crimson;
+  color: #fff;
+  transform: translateY(-200%);
+  border: #fff;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.radios{
+  margin-right: 70px;
+  margin-left: 10px;
+}
