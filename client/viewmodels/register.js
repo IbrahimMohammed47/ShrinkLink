@@ -68,5 +68,5 @@ ko.applyBindings(new UserRegisterViewModel(), document.getElementById("userRegis
 
 
 $('#goToLogin').click(e => {
-  window.location.replace("/client/views/login.html");
+  window.location.replace("login.html");
 })

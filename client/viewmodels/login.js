@@ -19,7 +19,7 @@ function GenericLoginViewModel(url) {
         console.log('Request success: ', data);
         localStorage.setItem("authData", data.authData)
         localStorage.setItem("userData", JSON.stringify(data.userData))
-        window.location.replace("/client/views/editSlots.html");
+        window.location.replace("editSlots.html");
       }).catch(function (err) {
         console.log(err)
       })
@@ -33,5 +33,5 @@ ko.applyBindings(new DoctorLoginViewModel(), document.getElementById("doctorLogi
 ko.applyBindings(new UserLoginViewModel(), document.getElementById("userLoginId"));
 
 $('#goToRegister').click(e => {
-  window.location.replace("/client/views/register.html");
+  window.location.replace("register.html");
 })

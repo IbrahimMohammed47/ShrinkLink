@@ -1,7 +1,10 @@
 require('dotenv').config()
 const express = require('express')
-const cors = require('cors')
 const routers = require('./routers')
+const path = require('path');
+const public = path.join(__dirname, 'client');
+
+
 
 const sequelize = require('./config/DBConfig')
 sequelize
@@ -19,7 +22,6 @@ sequelize
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-// app.use(cors())
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS,PATCH');
@@ -27,6 +29,18 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+
+app.use(express.static('client'))
+
+// app.use(express.static(__di`rname + '/client')); // Current directory is root
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(public, 'index.html'));
+// });
+//Serves all the request which includes /images in the url from Images folder
+// app.use('/views', express.static(__dirname + '/client/views'));
+// app.use('/assets', express.static(__dirname + '/client/assets'));
+// app.use('/viewmodels', express.static(__dirname + '/client/viewmodels'));
 
 app.use('/api/doctors', routers.doctors)
 app.use('/api/patients', routers.patients)

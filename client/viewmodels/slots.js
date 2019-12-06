@@ -32,6 +32,7 @@ $("#saveBtn").click(event => {
       })
     }).then(response => {
       console.log('Request success: ', response)
+      window.alert("schedule is saved !");
     }).catch(function (err) {
       console.log(err)
     })
