@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const router = express.Router()
 
 const { Doctor, Rating, Report } = require('../models/')
-
 const { login, verifyToken } = require('../middleware/auth')
 
 router.post('/login', login(Doctor))

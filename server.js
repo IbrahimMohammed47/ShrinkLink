@@ -7,16 +7,40 @@ const public = path.join(__dirname, 'client');
 
 
 const sequelize = require('./config/DBConfig')
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('ShrinkLink connected to DB 💃 .')
-    require('./models')
-  })
-  .catch((e) => {
-    console.log('ShrinkLink couldn\'t connect to DB 😳 .')
-    console.log(e)
-  })
+let retries = 5;
+// while (retries) {
+//   sequelize
+//     .authenticate()
+//     .then(() => {
+//       console.log('ShrinkLink connected to DB 💃 .')
+//       require('./models')
+//       retries = 0;
+//     })
+//     .catch(async (e) => {
+//       console.log('ShrinkLink couldn\'t connect to DB 😳 .')
+//       console.log(e)
+//       retries--;
+//       console.log("retries left:" + retries)
+//       await new Promise(res => setTimeout(res, 5000));
+//     })
+// }
+(async function () {
+  while (retries) {
+    try {
+      await sequelize.authenticate()
+      console.log('ShrinkLink connected to DB 💃 .')
+      require('./models')
+      break;
+
+    } catch (e) {
+      console.log('ShrinkLink couldn\'t connect to DB 😳 .')
+      console.log(e)
+      retries--;
+      console.log("retries left:" + retries)
+      await new Promise(res => setTimeout(res, 5000));
+    }
+  }
+})()
 
 // Init middleware
 const app = express()
