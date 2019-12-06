@@ -30,12 +30,12 @@ table {
   margin-right: 0px;
   padding-right: 0px;
 }
-.saveBtn {
+#saveBtn {
   margin-left: 0px;
   padding-left: 0px;
 }
 
-.saveBtn button{
+#saveBtn button{
   height: 98.2%;
   width: 20%;
   margin-left: 0px;
