@@ -1,9 +1,14 @@
 const express = require('express')
 const bcrypt = require('bcryptjs');
 const router = express.Router()
+const stripe = require('stripe')(process.env.STRIPESECRET);
 
 const { Patient, Report } = require('../models/')
-const stripe = require('stripe')(process.env.STRIPESECRET);
+const { login, verifyToken } = require('../middleware/auth')
+
+
+router.post('/login', login(Patient))
+
 router.post('/create', async (req, res) => {
   try {
 
@@ -32,7 +37,7 @@ router.post('/create', async (req, res) => {
   }
 })
 
-router.get('/history/:id', async (req, res) => {
+router.get('/history/:id', verifyToken, async (req, res) => {
   try {
     let reports = await Report.findAll({
       attributes: ['patient_id', 'diagnosis', 'treatment', 'comment']

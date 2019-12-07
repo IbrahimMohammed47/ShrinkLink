@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const stripe = require('stripe')(process.env.STRIPESECRET);
 
 const { Appointment, Patient } = require('../models/')
-const stripe = require('stripe')(process.env.STRIPESECRET);
-router.post('/book', async (req, res) => {
+const { verifyToken } = require('../middleware/auth')
+
+router.post('/book', verifyToken, async (req, res) => {
   try {
     patient = await Patient.findByPk(req.body.patient_id);
     patient_stripe_id = patient.stripe_id
-    console.log(patient.stripe_id)
     stripe.invoiceItems.create({
       customer: patient_stripe_id,
       amount: 10000,

@@ -29,13 +29,14 @@ table {
 .tbl {
   margin-right: 0px;
   padding-right: 0px;
+
 }
-#saveBtn {
+#saveBtnParent {
   margin-left: 0px;
   padding-left: 0px;
 }
 
-#saveBtn button{
+#saveBtn {
   height: 98.2%;
   width: 20%;
   margin-left: 0px;
