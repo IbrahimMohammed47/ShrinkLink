@@ -10,7 +10,17 @@ const Patient = sequelize.define('patients', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  stripe_id:
+  {
+    type: Sequelize.STRING,
+    unique: true
+  }
+  ,
   lastName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  password: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -20,7 +30,9 @@ const Patient = sequelize.define('patients', {
   gender: { type: Sequelize.ENUM('male', 'female') }
 }, {
   timestamps: false,
-  modelName: 'patients'
+  modelName: 'patients',
+  alter: false,
+
 });
 
 module.exports = Patient

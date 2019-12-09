@@ -1,0 +1,72 @@
+body{
+  background-image: url(../imgs/plant.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family:courier,arial,helvetica;
+}
+
+table {
+  table-layout: fixed ;
+  width: 100% ;
+}
+
+.editbtn, .chooseThis{
+  width: 100%;
+  height: 90px;
+}
+
+.descr{
+  padding-left: 40px;
+}
+.descr p {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 42px;
+  font-weight: bold;
+  color: aliceblue;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+
+}
+#theFirstOne{
+  background-color: #387BFE;;
+  padding: 2px;
+}
+
+.guide {
+  font-size: 28px ;
+}
+
+.guide2 {
+  font-size: 28px ;
+}
+
+#theOtherOne{
+  background-color: #DC3545;;
+  padding: 2px;
+}
+.tbl {
+  margin-right: 0px;
+  padding-right: 0px;
+
+}
+#saveBtnParent {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#saveBtn, #bookBtn {
+  height: 98.2%;
+  width: 20%;
+  margin-left: 0px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.centerMe{
+  text-align: center;
+}

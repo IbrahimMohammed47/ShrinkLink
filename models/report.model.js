@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../config/DBConfig')
-const Report = sequelize.define('appointments', {
+const Report = sequelize.define('reports', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -9,11 +9,19 @@ const Report = sequelize.define('appointments', {
       key: 'id',
     }
   },
+  patient_id: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'patients',
+      key: 'id',
+    }
+  },
   diagnosis: Sequelize.TEXT,
   treatment: Sequelize.TEXT,
   comment: Sequelize.TEXT
 }, {
   timestamps: false,
+  alter: false,
   modelName: 'reports'
 });
 
