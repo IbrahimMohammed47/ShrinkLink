@@ -16,6 +16,7 @@ function DoctorRegisterViewModel() {
     }).then(response => {
       console.log('Request success: ', response);
       window.alert("Registraion succesful !");
+      window.location.href = "login.html";
     }).catch(function (err) {
       console.log(err)
     })
@@ -39,6 +40,7 @@ function UserRegisterViewModel() {
     }).then(response => {
       console.log('Request success: ', response);
       window.alert("Registraion succesful !");
+      window.location.href = "login.html";
     }).catch(function (err) {
       console.log(err)
     })
