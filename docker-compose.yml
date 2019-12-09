@@ -25,6 +25,8 @@ services:
       PGPORT: 5432
       JWTSECRET: secret 
       STRIPESECRET: secret
+      NODEMAILER_EMAIL: email,
+      NODEMAILER_PASSWORD: emailPassword
     depends_on: 
       - db
     volumes:
