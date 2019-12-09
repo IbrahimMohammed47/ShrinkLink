@@ -5,34 +5,34 @@ const stripe = require('stripe')(process.env.STRIPESECRET);
 
 const { Patient, Report } = require('../models/')
 const { login, verifyToken } = require('../middleware/auth')
+const { validatePatient } = require('../middleware/validation')
 
 
 router.post('/login', login(Patient))
 
 router.post('/create', async (req, res) => {
   try {
-
-
-    
-
-    const customer = await stripe.customers.create({
-      name: req.body.firstName + " " + req.body.lastName,
-      email: req.body.email,
-      description: 'sapry dummy description'
-    });
-
-
-
-    let patient = await Patient.create({
+    let patient = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 8),
+      password: req.body.password,
       mobileNumber: req.body.mobileNumber,
       age: req.body.age,
       gender: req.body.gender,
-      stripe_id: customer.id,
-    })
+    }
+
+    const customer = await stripe.customers.create({
+      name: patient.firstName + " " + patient.lastName,
+      email: patient.email,
+      description: 'sapry dummy description'
+    });
+
+    validatePatient(patient)
+    patient.stripe_id = customer.id
+    patient.password = bcrypt.hashSync(patient.password, 8)
+
+    patient = await Patient.create(patient)
     res.send(`patient created with id ${patient.id}`)
   } catch (error) {
     console.log(error);
