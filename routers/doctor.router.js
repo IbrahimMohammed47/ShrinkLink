@@ -62,7 +62,7 @@ router.put('/edit/:id', verifyToken, async (req, res) => {
 router.get('/list', async (req, res) => {
   try {
     let doctors = await Doctor.findAll({
-      attributes: ['id', 'firstName', 'lastName', 'specialization', 'rating', 'place']
+      attributes: ['id', 'firstName', 'lastName', 'specialization', 'rating', 'place', 'mobileNumber']
     });
     res.json(doctors);
   } catch (error) {
