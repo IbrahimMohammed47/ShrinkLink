@@ -11,8 +11,7 @@ const verifyToken = (req, res, next) => {
   jwt.verify(((req.headers.authorization.split(' '))[1]), process.env.JWTSECRET, function (err, decoded) {
     if (err) console.log(err)
     if (decoded) {
-      req.userType = decoded.userType;
-      req.userId = decoded.userId;
+      req.userId = decoded.id;
       return next();
     } else {
       return res.status(401).send('Please log in first');

@@ -1,10 +1,6 @@
 require('dotenv').config()
 const express = require('express')
 const routers = require('./routers')
-// const path = require('path');
-// const public = path.join(__dirname, 'client');
-
-
 
 const sequelize = require('./config/DBConfig')
 let retries = 5;

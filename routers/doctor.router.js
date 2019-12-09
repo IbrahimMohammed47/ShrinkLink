@@ -4,6 +4,7 @@ const router = express.Router()
 
 const { Doctor, Rating, Report } = require('../models/')
 const { login, verifyToken } = require('../middleware/auth')
+const { validateDoctor } = require('../middleware/validation')
 
 router.post('/login', login(Doctor))
 
@@ -36,14 +37,11 @@ router.post('/create', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       mobileNumber: req.body.mobileNumber,
-      rating: req.body.rating,
       place: req.body.place,
-      slots: req.body.slots,
-      certificates: req.body.certificates
     }
-    validatePatient(patient)
+    validateDoctor(doctor)
 
-    doctor.password = bcrypt.hashSync(patient.password, 8)
+    doctor.password = bcrypt.hashSync(doctor.password, 8)
     doctor = await Doctor.create(doctor)
     res.send(`doctor created with id ${doctor.id}`)
   } catch (error) {

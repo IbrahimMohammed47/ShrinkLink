@@ -21,6 +21,7 @@ const Report = sequelize.define('reports', {
   comment: Sequelize.TEXT
 }, {
   timestamps: false,
+  alter: false,
   modelName: 'reports'
 });
 
