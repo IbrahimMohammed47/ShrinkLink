@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
 const createToken = (email, id) => {
   let expirationDate = Math.floor(Date.now() / 1000) + 14400; //4 hours from now...
   var token = jwt.sign({ email: email, id: id, exp: expirationDate }, process.env.JWTSECRET);
@@ -46,6 +45,7 @@ const login = (Model) => async (req, res) => {
     res.status(401).send("Either your E-mail or Password is wrong.")
   }
 }
+
 
 module.exports = {
   login,
