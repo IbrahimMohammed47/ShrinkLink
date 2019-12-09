@@ -24,6 +24,7 @@ services:
       PGPASSWORD: pass
       PGPORT: 5432
       JWTSECRET: secret 
+      STRIPESECRET: secret
     depends_on: 
       - db
     volumes:

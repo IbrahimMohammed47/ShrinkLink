@@ -30,7 +30,9 @@ const Patient = sequelize.define('patients', {
   gender: { type: Sequelize.ENUM('male', 'female') }
 }, {
   timestamps: false,
-  modelName: 'patients'
+  modelName: 'patients',
+  alter: false,
+
 });
 
 module.exports = Patient

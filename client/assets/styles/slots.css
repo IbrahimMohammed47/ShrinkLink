@@ -1,8 +1,8 @@
 body{
+  background-image: url(../imgs/plant.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family:courier,arial,helvetica;
-}
-body {
-  background-color: #2ecc71;
 }
 
 table {
@@ -26,10 +26,18 @@ table {
   transform: translateY(-50%);
   font-size: 42px;
   font-weight: bold;
+  color: aliceblue;
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 
 }
-
+.descr span {
+  background-color: #387BFE;;
+  padding: 2px;
+}
+#theOtherOne{
+  background-color: #DC3545;;
+  padding: 2px;
+}
 .tbl {
   margin-right: 0px;
   padding-right: 0px;
