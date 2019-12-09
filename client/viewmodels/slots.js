@@ -1,6 +1,5 @@
 let doctor = localStorage.getItem("userData") ? JSON.parse(localStorage.userData) : null
 const docSchedule = doctor.slots || {}
-console.log(doctor)
 for (const slot in docSchedule) {
   if (docSchedule[slot] === 'true') {
     $(`#${slot}`).prop("checked", true)
@@ -22,8 +21,6 @@ $(".editbtn").click((event) => {
     }
   }
 })
-
-
 
 $("#saveBtn").click(event => {
   if (doctor) {

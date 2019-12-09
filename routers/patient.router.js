@@ -33,7 +33,7 @@ router.post('/create', async (req, res) => {
     res.send(`patient created with id ${patient.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
@@ -46,7 +46,7 @@ router.get('/history/:id', verifyToken, async (req, res) => {
     res.json(reports);
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 

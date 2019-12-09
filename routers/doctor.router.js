@@ -19,7 +19,7 @@ router.post('/report', async (req, res) => {
     res.send(`report created with id ${report.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong")
+    res.status(405).send("something wrong")
   }
 })
 
@@ -42,7 +42,7 @@ router.post('/create', async (req, res) => {
     res.send(`doctor created with id ${doctor.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
@@ -67,7 +67,7 @@ router.get('/list', async (req, res) => {
     res.json(doctors);
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
@@ -102,7 +102,7 @@ router.put('/rate', verifyToken, async (req, res) => {
     res.send(`doctor rate is now ${doctor.rating}`)
   } catch (error) {
     console.log(error)
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 

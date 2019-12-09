@@ -1,29 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const routers = require('./routers')
-const path = require('path');
-const public = path.join(__dirname, 'client');
+// const path = require('path');
+// const public = path.join(__dirname, 'client');
 
 
 
 const sequelize = require('./config/DBConfig')
 let retries = 5;
-// while (retries) {
-//   sequelize
-//     .authenticate()
-//     .then(() => {
-//       console.log('ShrinkLink connected to DB 💃 .')
-//       require('./models')
-//       retries = 0;
-//     })
-//     .catch(async (e) => {
-//       console.log('ShrinkLink couldn\'t connect to DB 😳 .')
-//       console.log(e)
-//       retries--;
-//       console.log("retries left:" + retries)
-//       await new Promise(res => setTimeout(res, 5000));
-//     })
-// }
 (async function () {
   while (retries) {
     try {
@@ -56,15 +40,6 @@ app.use(function (req, res, next) {
 
 
 app.use(express.static('client'))
-
-// app.use(express.static(__di`rname + '/client')); // Current directory is root
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(public, 'index.html'));
-// });
-//Serves all the request which includes /images in the url from Images folder
-// app.use('/views', express.static(__dirname + '/client/views'));
-// app.use('/assets', express.static(__dirname + '/client/assets'));
-// app.use('/viewmodels', express.static(__dirname + '/client/viewmodels'));
 
 app.use('/api/doctors', routers.doctors)
 app.use('/api/patients', routers.patients)

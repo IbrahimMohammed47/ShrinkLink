@@ -32,7 +32,7 @@ router.post('/book', verifyToken, async (req, res) => {
     res.send(`appointment created with id ${appointment.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 module.exports = router
