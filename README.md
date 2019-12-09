@@ -5,19 +5,24 @@ A website to ease the communication between Shrinks and Patients
 
 1. clone the reporisotry to your machine using the following command
 
-bash
+
+```
 git clone https://github.com/IbrahimMohammed47/ShrinkLink.git
+```
 
 2. change the application configuration by opening *docker-compose.yml* and modifying the enviroment variables of the web app and postegres DB
 
 3. to start fetching images and creating the containers that your services run on 
 write the command 
-bash
-docker-compose build
 
+```
+docker-compose build
+```
 4. to run the services, use the command
-bash
+
+```
 docker-compose up
+````
 
 *now you're ready to go: rocket:!*
 
