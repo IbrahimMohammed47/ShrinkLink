@@ -20,6 +20,7 @@ function DoctorViewModel(data) {
 }
 DoctorViewModel.prototype.viewSchedule = function () {
   localStorage.setItem("viewedDoctor", this.id)
+  window.location.href = "viewSlots.html";
 }
 
 fetch('http://localhost:5000/api/doctors/list', {
