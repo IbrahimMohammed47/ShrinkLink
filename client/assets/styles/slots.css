@@ -1,3 +1,6 @@
+body{
+  font-family:courier,arial,helvetica;
+}
 body {
   background-color: #2ecc71;
 }
@@ -7,7 +10,7 @@ table {
   width: 100% ;
 }
 
-.editbtn{
+.editbtn, .chooseThis{
   width: 100%;
   height: 90px;
 }
@@ -23,7 +26,8 @@ table {
   transform: translateY(-50%);
   font-size: 42px;
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+
 }
 
 .tbl {
@@ -36,7 +40,7 @@ table {
   padding-left: 0px;
 }
 
-#saveBtn {
+#saveBtn, #bookBtn {
   height: 98.2%;
   width: 20%;
   margin-left: 0px;
@@ -45,6 +49,7 @@ table {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+
 .centerMe{
   text-align: center;
 }

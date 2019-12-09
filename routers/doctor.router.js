@@ -7,6 +7,8 @@ const { login, verifyToken } = require('../middleware/auth')
 
 router.post('/login', login(Doctor))
 
+
+
 router.post('/report', async (req, res) => {
   try {
     let report = await Report.create({
@@ -19,7 +21,7 @@ router.post('/report', async (req, res) => {
     res.send(`report created with id ${report.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong")
+    res.status(405).send("something wrong")
   }
 })
 
@@ -42,7 +44,7 @@ router.post('/create', async (req, res) => {
     res.send(`doctor created with id ${doctor.id}`)
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
@@ -62,12 +64,12 @@ router.put('/edit/:id', verifyToken, async (req, res) => {
 router.get('/list', async (req, res) => {
   try {
     let doctors = await Doctor.findAll({
-      attributes: ['id', 'firstName', 'lastName', 'specialization', 'rating', 'place']
+      attributes: ['id', 'firstName', 'lastName', 'specialization', 'rating', 'place', 'mobileNumber']
     });
     res.json(doctors);
   } catch (error) {
     console.log(error);
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
@@ -102,7 +104,7 @@ router.put('/rate', verifyToken, async (req, res) => {
     res.send(`doctor rate is now ${doctor.rating}`)
   } catch (error) {
     console.log(error)
-    res.send("something wrong");
+    res.status(405).send("something wrong");
   }
 })
 
