@@ -24,7 +24,7 @@ docker-compose build
 docker-compose up
 ````
 
-*now you're ready to go: rocket:!*
+*now you're ready to go :rocket: !*
 
 ## Contributing
 
