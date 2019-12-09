@@ -12,6 +12,9 @@ router.post('/login', login(Patient))
 router.post('/create', async (req, res) => {
   try {
 
+
+    
+
     const customer = await stripe.customers.create({
       name: req.body.firstName + " " + req.body.lastName,
       email: req.body.email,

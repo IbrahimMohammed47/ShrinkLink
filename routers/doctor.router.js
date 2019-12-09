@@ -7,6 +7,8 @@ const { login, verifyToken } = require('../middleware/auth')
 
 router.post('/login', login(Doctor))
 
+
+
 router.post('/report', async (req, res) => {
   try {
     let report = await Report.create({

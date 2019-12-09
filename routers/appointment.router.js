@@ -5,6 +5,8 @@ const stripe = require('stripe')(process.env.STRIPESECRET);
 const { Appointment, Patient, Doctor } = require('../models/')
 const { verifyToken } = require('../middleware/auth')
 
+
+
 router.post('/book', verifyToken, async (req, res) => {
   try {
     let patient = await Patient.findByPk(req.body.patient_id);
