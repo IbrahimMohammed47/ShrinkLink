@@ -29,18 +29,22 @@ router.post('/report', async (req, res) => {
 
 router.post('/create', async (req, res) => {
   try {
-    let doctor = await Doctor.create({
+    let doctor = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       specialization: req.body.specialization,
       email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 8),
+      password: req.body.password,
       mobileNumber: req.body.mobileNumber,
       rating: req.body.rating,
       place: req.body.place,
       slots: req.body.slots,
       certificates: req.body.certificates
-    })
+    }
+    validatePatient(patient)
+
+    doctor.password = bcrypt.hashSync(patient.password, 8)
+    doctor = await Doctor.create(doctor)
     res.send(`doctor created with id ${doctor.id}`)
   } catch (error) {
     console.log(error);
