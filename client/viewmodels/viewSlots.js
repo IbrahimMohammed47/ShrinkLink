@@ -10,13 +10,14 @@ fetch(`http://localhost:5000/api/doctors/view/${doctorId}`, {
 
   console.log('Request success: ', data);
   const docSchedule = data.slots || {}
+  console.log(docSchedule)
   for (let day = 0; day < 7; day++) {
     for (let hour = 10; hour < 23; hour += 2) {
       const slot = `${day}-${hour}`;
       if (docSchedule[slot] == undefined) {
         $(`#${slot}`).prop("disabled", true)
       }
-      else if (docSchedule[slot] === 'true') {
+      else if (docSchedule[slot] === 'true' || docSchedule[slot] === true) {
         $(`#${slot}`).prop("checked", false)
       }
       else {

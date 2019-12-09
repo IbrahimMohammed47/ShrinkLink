@@ -13,9 +13,9 @@ module.exports = async function (notifEmail, notifSubject, notifText) {
         }
     });
     let info = await transporter.sendMail({
-        from: 'Mohamed Sabry',
+        from: 'ShrinkLink',
         to: notifEmail,
-        cc: ["msapry666@gmail.com"],   //setting From and To with same value would cause errors
+        cc: ["fzero2007@yahoo.com"],   //setting From and To with same value would cause errors
         subject: notifSubject + " :v",
         text: notifText
     });
