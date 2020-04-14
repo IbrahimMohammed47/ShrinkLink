@@ -1,5 +1,6 @@
 # ShrinkLink
-A website to ease the communication between Shrinks and Patients
+A website to ease the communication between Shrinks and Patients. 
+**this website was mainly made to learn docker and knockout mvvm library**
 
 ## Installing and building
 
